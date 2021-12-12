@@ -39,17 +39,10 @@ struct StudentList
 
 		void add(Student student)
 		{
-			ListNode* pNode = new ListNode;
+			ListNode* pNode = new ListNode(student.clone());
 			if (pNode == NULL)
 			{
 				cout << "ƒƒ‚ƒŠ‚ÌŠm•Û‚ÉŽ¸”s‚µ‚Ü‚µ‚½\n";
-				return;
-			}
-			pNode->pData = student.clone();
-			if (pNode->pData == NULL)
-			{
-				cout << "ƒƒ‚ƒŠ‚ÌŠm•Û‚ÉŽ¸”s‚µ‚Ü‚µ‚½\n";
-				delete pNode;
 				return;
 			}
 			if (this->_listTop == NULL)
@@ -73,30 +66,10 @@ struct StudentList
 				cout << "ƒf[ƒ^‚ª“o˜^‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ\n";
 				return;
 			}
-			if (this->length == 1)
+			if (pwNode->isFirst())
 			{
-				this->_listTop = NULL;
+				this->_listTop = pwNode->pNext;
 			}
-			else
-			{
-				if (pwNode->pBack == NULL)
-				{
-					//æ“ª
-					this->_listTop = this->_listTop->pNext;
-					this->_listTop->pBack = NULL;
-				}
-				else if (pwNode->pNext == NULL)
-				{
-					//––”ö
-					pwNode->pBack->pNext = NULL;
-				}
-				else
-				{
-					pwNode->pNext->pBack = pwNode->pBack;
-					pwNode->pBack->pNext = pwNode->pNext;
-				}
-			}
-			delete pwNode->pData;
 			delete pwNode;
 			this->length--;
 		}
