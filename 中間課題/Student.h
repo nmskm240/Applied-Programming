@@ -22,7 +22,7 @@ struct Student
 
 	char* toString()
 	{
-		char* buf = new char;
+		char buf[1024];
 		sprintf(buf, " 学籍番号:%d 名前: %s 学年: %d年 コメント: %s", this->id, this->name, this->rank, this->comment);
 		return buf;
 	}

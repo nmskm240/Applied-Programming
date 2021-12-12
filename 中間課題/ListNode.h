@@ -1,7 +1,6 @@
 struct ListNode
 {
-	public: 
-		Student* pData = NULL;
-		ListNode* pNext = NULL;
-		ListNode* pBack = NULL;
+	Student* pData = NULL;
+	ListNode* pNext = NULL;
+	ListNode* pBack = NULL;
 };
